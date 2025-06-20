@@ -16,7 +16,8 @@ function addBooktoLibrary(title, author, pages, id, progress) {
 
 function displayBooks(library) {
     const content = document.querySelector('#content')
-    for (let book in library) {
+    for (let i = 0; i < library.length; i++) {
+        const book = library[i];
         const div = document.createElement("div");
         div.classList.add("book");
         div.textContent = book.title;
