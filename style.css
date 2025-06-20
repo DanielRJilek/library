@@ -12,3 +12,19 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+#header {
+    height: 10%;
+}
+
+#content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.book {
+    height: 5%;
+    width: 5%;
+    border: 2px solid black;
+}
