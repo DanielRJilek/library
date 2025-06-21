@@ -37,6 +37,7 @@ dialog {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    row-gap: 5vw;
     min-height: 85vh;
     /* width: 100vw; */
 }
