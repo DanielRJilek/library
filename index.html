@@ -10,7 +10,20 @@
 <body>
     <div id="container">
         <div id="header">
-            <button id="add">Add Book</button>
+            <dialog>
+                <form action="example.com/path" method="post">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title">
+                    <label for="author">Author:</label>
+                    <input type="text" id="author">
+                    <label for="pages">Pages:</label>
+                    <input type="number" id="pages">
+                    <button type="submit" id="add">Add Book</button>
+                    <!-- default type is submit so 'button' type needs to be specified -->
+                    <button type="button" id="cancel">Cancel</button>
+                </form>
+            </dialog>
+            <button id="new-book">New Book</button>
         </div>
         <div id="content"></div>       
     </div>
