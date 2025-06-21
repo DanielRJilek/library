@@ -5,13 +5,14 @@
 body {
     margin: 0;
     padding: 0;
-    max-width: 100vw;
-    max-height: 100vh;
+    /* width: 100vw; */
+    min-height: 100vh;
 }
 
 #container {
     min-height: 100vh;
-    min-width: 100vw;
+    /* min-width: 100vw; */
+    /* max-width: 100vw; */
     background-image: url(./assets/jonathan-francisca-BpbkLACP64M-unsplash.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -19,15 +20,25 @@ body {
 }
 
 #header {
-    height: 10%;
+    height: 10vh;
+    position: sticky;
+    /* stickiness worked without top: 0 at first but now it only works with it */
+    top: 0;
+    /* width: 100vw; */
+    
+}
+
+dialog {
+    
 }
 
 #content {
-    margin-top: 5%;
+    margin-top: 5vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    height: 90%;
+    min-height: 85vh;
+    /* width: 100vw; */
 }
 
 .book {
