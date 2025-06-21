@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box 
+ }
+
 body {
     margin: 0;
     padding: 0;
@@ -21,10 +25,27 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    height: 90%;
 }
 
 .book {
-    height: 5%;
-    width: 5%;
-    border: 2px solid black;
+    height: 30vh;
+    width: 28vh;
+    background-image: url(./assets/round-icons-sYodBkUvFBI-unsplash.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: white;
+    text-align: center;
+    font-size: min(3vw, 3vh);
+    padding-top: 1%;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+button {
+    margin-top: auto;
+}
+
+.info {
+    font-size: min(2vw, 2vh);
 }

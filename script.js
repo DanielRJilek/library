@@ -1,14 +1,13 @@
-function Book(title, author, pages, id, progress) {
+function Book(title, author, pages, id) {
     this.title = title;
     this.author = author;
     this.pages = pages; 
-    this.read = true;
+    this.read = false;
     this.id = id; 
-    this.progress = progress;
 }
 
-function addBooktoLibrary(title, author, pages, id, progress) {
-    const book = new Book(title, author, pages, id, progress);
+function addBooktoLibrary(title, author, pages, id) {
+    const book = new Book(title, author, pages, id);
     myLibrary.push(book);
 }
 
@@ -21,6 +20,10 @@ function displayBooks(library) {
         div.textContent = book.title;
         div.setAttribute("id", book.id);
 
+        const info = document.createElement("div");
+        info.textContent = "Not read";
+        info.classList.add("info");
+        div.appendChild(info);
 
         const readButton = document.createElement("button");
         readButton.classList.add("readButton");
@@ -37,8 +40,8 @@ function displayBooks(library) {
 }
 
 function removeBook(e, library) {
-    const div = e.target.parentElement;
-    const id = e.target.parentElement.id;
+    const book = e.target.parentElement;
+    const id = book.id;
     let index = -1;
     for (let i = 0; i < library.length; i++) {
         if (library[i].id == id) {
@@ -47,21 +50,41 @@ function removeBook(e, library) {
         }
     }
     library.splice(library.index, 1);
-    while (div.firstChild) {
-        div.lastChild.remove();
+    while (book.firstChild) {
+        book.lastChild.remove();
     }
-    div.remove();
+    book.remove();
+}
+
+function markRead(e,library) {
+    const book = e.target.parentElement;
+    const id = book.id;
+    let index = -1;
+    for (let i = 0; i < library.length; i++) {
+        if (library[i].id == id) {
+            index = i;
+            library[i].read = true;
+        }
+    }
+    const info = book.querySelector(".info");
+    info.textContent = "Read";
 }
 
 const myLibrary = [];
 
-addBooktoLibrary("The Three Musketeers", "Alexandre Dumas", 100, crypto.randomUUID(), false);
-addBooktoLibrary("The Count of Monte Cristo", "Alexandre Dumas", 100, crypto.randomUUID(), false);
+// addBooktoLibrary("The Three Musketeers", "Alexandre Dumas", 100, crypto.randomUUID());
+// addBooktoLibrary("The Count of Monte Cristo", "Alexandre Dumas", 100, crypto.randomUUID());
 displayBooks(myLibrary);
 
 const removeButtons = document.querySelectorAll(".removeButton");
+const readButtons = document.querySelectorAll(".readButton")
 removeButtons.forEach((button) => {
     button.addEventListener("click", function (e) {
         removeBook(e,myLibrary);
+    });
+});
+readButtons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+        markRead(e,myLibrary);
     });
 });
